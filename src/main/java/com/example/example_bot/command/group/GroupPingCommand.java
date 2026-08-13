@@ -1,10 +1,9 @@
 package com.example.example_bot.command.group;
 
-import io.lemonjuice.flandre_bot.command.group.SimpleGroupCommandRunner;
-import io.lemonjuice.flandre_bot.model.Message;
-import io.lemonjuice.flandre_bot.permission.IPermissionLevel;
-import io.lemonjuice.flandre_bot.permission.PermissionLevel;
-import io.lemonjuice.flandre_bot.utils.SendingUtils;
+import io.lemonjuice.flandre_bot_framework.command.group.SimpleGroupCommandRunner;
+import io.lemonjuice.flandre_bot_framework.model.Message;
+import io.lemonjuice.flandre_bot_framework.permission.IPermissionLevel;
+import io.lemonjuice.flandre_bot_framework.permission.PermissionLevel;
 
 public class GroupPingCommand extends SimpleGroupCommandRunner {
     public GroupPingCommand(Message command) {
@@ -28,6 +27,6 @@ public class GroupPingCommand extends SimpleGroupCommandRunner {
 
     @Override
     public void apply() {
-        SendingUtils.sendGroupText(this.command.groupId, "pong");
+        this.command.getContext().sendText("pong");
     }
 }

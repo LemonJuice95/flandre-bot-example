@@ -1,11 +1,10 @@
 package com.example.example_bot.command.group;
 
 import com.example.example_bot.resource.ResourceInit;
-import io.lemonjuice.flandre_bot.command.group.SimpleGroupCommandRunner;
-import io.lemonjuice.flandre_bot.model.Message;
-import io.lemonjuice.flandre_bot.permission.IPermissionLevel;
-import io.lemonjuice.flandre_bot.permission.PermissionLevel;
-import io.lemonjuice.flandre_bot.utils.SendingUtils;
+import io.lemonjuice.flandre_bot_framework.command.group.SimpleGroupCommandRunner;
+import io.lemonjuice.flandre_bot_framework.model.Message;
+import io.lemonjuice.flandre_bot_framework.permission.IPermissionLevel;
+import io.lemonjuice.flandre_bot_framework.permission.PermissionLevel;
 
 public class GroupHelpCommand extends SimpleGroupCommandRunner {
     public GroupHelpCommand(Message command) {
@@ -29,6 +28,6 @@ public class GroupHelpCommand extends SimpleGroupCommandRunner {
 
     @Override
     public void apply() {
-        SendingUtils.sendGroupForwardText(this.command.selfId, this.command.groupId, ResourceInit.EXAMPLE_HELP_DOC.get());
+        this.command.getContext().sendForwardMessage(ResourceInit.EXAMPLE_HELP_DOC.get());
     }
 }
